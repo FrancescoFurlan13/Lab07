@@ -14,7 +14,16 @@ class Controller:
         self._mese = 0
 
     def handle_umidita_media(self, e):
-        pass
+        if self._mese ==0:
+            self._view.create_alert("Selezionare un mese")
+            return
+
+        umidita = self._model.getUmiditaMedia(self._mese)
+        self._view.lst_result.controls.clear()
+        for u in umidita:
+            self._view.lst_result.controls.append(ft.Text(f"{u[0]}: {u[1]}"))
+        self._view.update_page()
+
 
 
 

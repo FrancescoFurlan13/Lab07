@@ -1,3 +1,9 @@
+from database import meteo_dao
+
+
 class Model:
-    def __init__(self):
-        pass
+
+    def getUmiditaMedia(self, mese):
+        media = meteo_dao.MeteoDao.getUmiditaMedia(mese)
+        return media
+
